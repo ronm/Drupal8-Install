@@ -1,0 +1,5 @@
+{
+    "name": "drupal/mendo",
+    "description": "Basic composer file",
+    "type": "drupal-module",
+}

@@ -1,0 +1,7 @@
+name: Block Class
+description: Allows assigning CSS classes to blocks.
+core: 8.x
+type: module
+package: Core
+dependencies:
+  - block

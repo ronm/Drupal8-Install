@@ -1,0 +1,15 @@
+<?php
+/**
+ * @author   Mohamed Anis TAKTAK <tak2.anis@gmail.com>
+ */
+
+/**
+ * Delete the configurations
+ *  Implements hook_uninstall().
+ */
+function block_class_uninstall() {
+  //Get all configurations.
+  $config_factory = \Drupal::configFactory();
+  //Delete the configuration of block class.
+  $config_factory->getEditable('block_class.settings')->delete()->save(true);
+}
