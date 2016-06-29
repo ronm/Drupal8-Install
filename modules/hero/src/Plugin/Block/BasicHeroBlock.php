@@ -4,7 +4,7 @@
  * Provides a 'Hero' Block
  *
  * @Block(
- *   id = "hero_block",
+ *   id = "basichero_block",
  *   admin_label = @Translation("Hero"),
  * )
  */
@@ -25,15 +25,17 @@ class BasicHeroBlock extends BlockBase {
 		
 		$slides = array();
 		
-		foreach( $node->field_slide as &$field_slide ) {
-			$fc = FieldCollectionItem::load($field_slide->value);
-			
-			$slides[] = array(
-				"body" => $fc->get('field_body')->value,
-				"image" => $fc->get('field_image')->entity->url(),
-				"title" => $fc->get('field_title')->value,
-			);
-		}	
+		if ( isset($node->field_slide) ) {
+			foreach( $node->field_slide as &$field_slide ) {
+				$fc = FieldCollectionItem::load($field_slide->value);
+				
+				$slides[] = array(
+					"body" => $fc->get('field_body')->value,
+					"image" => $fc->get('field_image')->entity->url(),
+					"title" => $fc->get('field_title')->value,
+				);
+			}	
+		}
 	
 		return array(
 			'#theme' => 'basic_hero',

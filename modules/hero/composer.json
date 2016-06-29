@@ -1,5 +1,5 @@
 {
-    "name": "drupal/mendo",
+    "name": "drupal/hero",
     "description": "Basic composer file",
     "type": "drupal-module",
 }
