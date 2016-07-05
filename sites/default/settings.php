@@ -285,7 +285,7 @@ $config_directories = array();
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = 'mB215s1GFlYQ21l7dEWquvvC7tvW46oM2aIiUm_XgNQFvvL-ztqlTEPzkkN-_uAttbSZUk-TOA';
+$settings['hash_salt'] = 'y5iINplZFE8A7t7_sJa2aUvUxZF9bHyXsA5W7GD-LZn6bLqMGjImB7cVuKtq23BB8j3l-gQ2zQ';
 
 /**
  * Deployment identifier.
@@ -714,9 +714,10 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
  *
  * Keep this code block at the end of this file to take full effect.
  */
-# if (file_exists(__DIR__ . '/settings.local.php')) {
-#   include __DIR__ . '/settings.local.php';
-# }
+if (file_exists(__DIR__ . '/settings.local.php')) {
+	include __DIR__ . '/settings.local.php';
+}
+
 $databases['default']['default'] = array (
   'database' => 'drupal8',
   'username' => 'root',
@@ -728,4 +729,4 @@ $databases['default']['default'] = array (
   'driver' => 'mysql',
 );
 $settings['install_profile'] = 'standard';
-$config_directories['sync'] = 'sites/default/files/config_tOZ98A_Dd6iHlMTY5kWhywGbL-75ReRWxCdNpgLNML_JFgbhsOe0AMAaho0VzmB18ergVca3fQ/sync';
+$config_directories['sync'] = 'sites/default/files/config_TFlr7IASZN02NodwAZqbX46fZB-fa1bj2_bwaMIEbpQovbaAp0gJKjuMEusIcBLuMGmk8BXh-g/sync';

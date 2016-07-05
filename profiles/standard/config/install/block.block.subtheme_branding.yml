@@ -1,5 +1,5 @@
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -7,8 +7,8 @@ dependencies:
     - subtheme
 id: subtheme_branding
 theme: subtheme
-region: header
-weight: 0
+region: '-1'
+weight: -4
 provider: null
 plugin: system_branding_block
 settings:

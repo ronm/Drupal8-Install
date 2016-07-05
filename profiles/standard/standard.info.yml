@@ -37,6 +37,7 @@ dependencies:
   - ctools
   - field_collection
   - form_placeholder
+  - helpers
   - metatag
   - pathauto
   - token

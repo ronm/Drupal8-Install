@@ -939,7 +939,6 @@ function drupal_check_profile($profile) {
   $listing = new ExtensionDiscovery(\Drupal::root());
   $module_list = $listing->scan('module');
   foreach ($info['dependencies'] as $module) {
-
     $file = \Drupal::root() . '/' . $module_list[$module]->getPath() . "/$module.install";
     if (is_file($file)) {
       require_once $file;
