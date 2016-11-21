@@ -285,7 +285,7 @@ $config_directories = array();
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = 'y5iINplZFE8A7t7_sJa2aUvUxZF9bHyXsA5W7GD-LZn6bLqMGjImB7cVuKtq23BB8j3l-gQ2zQ';
+$settings['hash_salt'] = 'GjCBegu4cTVU-0IX_BY2VvbD8sRHZzlyycN-vuKgX4s6DulbwW_RJxPZ90YKB9Q_ySfM4wWtRA';
 
 /**
  * Deployment identifier.
@@ -653,6 +653,19 @@ if ($settings['hash_salt']) {
 # $config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
 # $config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
 
+
+
+
+$settings['fast404_exts'] = '/^(?!robots).*\.(txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
+$settings['fast404_path_check'] = FALSE;
+$settings['fast404_whitelist']  = array('index.php', 'rss.xml', 'install.php', 'cron.php', 'update.php', 'xmlrpc.php');
+#$conf['fast404_allow_anon_imagecache'] = TRUE;
+
+#if (file_exists('./profiles/starter/modules/contrib/fast_404/fast404.inc')) {
+#	include_once './profiles/starter/modules/contrib/fast_404/fast404.inc';
+#	fast404_preboot($settings);
+#}
+
 /**
  * Load services definition file.
  */
@@ -718,15 +731,3 @@ if (file_exists(__DIR__ . '/settings.local.php')) {
 	include __DIR__ . '/settings.local.php';
 }
 
-$databases['default']['default'] = array (
-  'database' => 'drupal8',
-  'username' => 'root',
-  'password' => 'mysql',
-  'prefix' => '',
-  'host' => 'localhost',
-  'port' => '3306',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
-);
-$settings['install_profile'] = 'standard';
-$config_directories['sync'] = 'sites/default/files/config_TFlr7IASZN02NodwAZqbX46fZB-fa1bj2_bwaMIEbpQovbaAp0gJKjuMEusIcBLuMGmk8BXh-g/sync';
