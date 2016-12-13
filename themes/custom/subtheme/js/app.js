@@ -37,7 +37,7 @@
 	
 	
 	// close alert boxes
-	$(".alert-box .close").on("click", function(evt) {
+	$(document).on("click", ".alert-box .close", function(evt) {
 		evt.preventDefault();
 		this.parentNode.classList.add("fade-out");
 	});
