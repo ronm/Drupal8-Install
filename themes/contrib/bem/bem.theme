@@ -1,0 +1,124 @@
+<?php
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function bem_element_info_alter(array &$types) {
+  foreach ($types as $name => $type) {
+    if (isset($type['#theme_wrappers']) && in_array('form_element', $type['#theme_wrappers'])) {
+      $types[$name]['#process'][] = '_bem_process_form_element';
+    }
+    if (isset($type['#theme_wrappers']) && in_array('details', $type['#theme_wrappers'])) {
+      $types[$name]['#process'][] = '_bem_process_form_element';
+    }
+  }
+}
+
+function _bem_process_form_element(&$element, FormStateInterface $form_state, &$complete_form) {
+  if (!empty($complete_form['#form_id'])) {
+    $element['#bem_form_id'] = $complete_form['#form_id'];
+  }
+  return $element;
+}
+
+/**
+ * @param $variables
+ *
+ * @see template_preprocess_form_element()
+ */
+function bem_preprocess_form_element(&$variables) {
+  $element = &$variables['element'];
+
+  $variables['form_id'] = isset($element['#bem_form_id']) ? $element['#bem_form_id'] : '';
+}
+
+/**
+ * @param $variables
+ *
+ * @see template_preprocess_details()
+ */
+function bem_preprocess_details(&$variables) {
+  $element = &$variables['element'];
+
+  $variables['form_id'] = isset($element['#bem_form_id']) ? $element['#bem_form_id'] : '';
+  $variables['name'] = isset($element['#id']) ? preg_replace(['/^edit\-/', '/\-\d+$/'], '', $element['#id']) : '';
+}
+
+/**
+ * @param $variables
+ *
+ * @see template_preprocess_form_element()
+ */
+function bem_preprocess_form(&$variables) {
+  $element = &$variables['element'];
+
+  $variables['form_id'] = $element['#form_id'];
+}
+
+/**
+ * Implements THEME_preprocess_HOOK() for field.html.twig.
+ *
+ * @see hook_preprocess_HOOK()
+ * @see template_preprocess_field()
+ */
+function bem_preprocess_field(&$variables) {
+  $element = $variables['element'];
+
+  $variables['bundle'] = $element['#bundle'];
+  $variables['view_mode'] = $element['#view_mode'];
+
+  // TODO Remove when possible; when rendered inside a view or field, default is used instead of full.
+  if ($variables['entity_type'] == 'block_content' && $variables['view_mode'] == 'default') {
+    $variables['view_mode'] = 'full';
+  }
+}
+
+/**
+ * Implements THEME_preprocess_HOOK() for block.html.twig.
+ *
+ * @see hook_preprocess_HOOK()
+ * @see template_preprocess_block()
+ */
+function bem_preprocess_block(&$variables) {
+  $elements = $variables['elements'];
+  $variables['id'] = $elements['#id'];
+
+  if ($variables['base_plugin_id'] == 'block_content') {
+    /** @var \Drupal\block_content\Entity\BlockContent $block_content */
+    $block_content = $variables['content']['#block_content'];
+    $variables['block_content_bundle'] = $block_content->bundle();
+  }
+
+  if ($variables['base_plugin_id'] == 'system_menu_block') {
+    if ($variables['content_attributes'] instanceof Attribute === FALSE) {
+      $variables['content_attributes'] = new Attribute($variables['content_attributes']);
+    }
+
+    $variables['content']['#attributes'] = $variables['content_attributes'];
+  }
+}
+
+/**
+ * Implements THEME_preprocess_HOOK() for item_list.
+ *
+ * @see hook_preprocess_HOOK()
+ * @see template_preprocess_item_list()
+ */
+function bem_preprocess_item_list(&$variables) {
+  $hook = explode('__', $variables['theme_hook_original']);
+  $variables['bem_block'] = Html::cleanCssIdentifier(implode('-', $hook));
+}
+
+/**
+ * Implements THEME_preprocess_HOOK() for user.html.twig.
+ *
+ * @see hook_preprocess_HOOK()
+ * @see template_preprocess_user()
+ */
+function bem_preprocess_user(&$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+}

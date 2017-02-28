@@ -285,7 +285,7 @@ $config_directories = array();
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = 'GjCBegu4cTVU-0IX_BY2VvbD8sRHZzlyycN-vuKgX4s6DulbwW_RJxPZ90YKB9Q_ySfM4wWtRA';
+$settings['hash_salt'] = 'hFI7uCealP0ksyeIBBJfsPezo0lWbhbLrp5VyAcs9ygwD3m2VMqn0_-5DwIVSZ8mcOfK7ipDVw';
 
 /**
  * Deployment identifier.
@@ -653,19 +653,6 @@ if ($settings['hash_salt']) {
 # $config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
 # $config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
 
-
-
-
-$settings['fast404_exts'] = '/^(?!robots).*\.(txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
-$settings['fast404_path_check'] = FALSE;
-$settings['fast404_whitelist']  = array('index.php', 'rss.xml', 'install.php', 'cron.php', 'update.php', 'xmlrpc.php');
-#$conf['fast404_allow_anon_imagecache'] = TRUE;
-
-#if (file_exists('./profiles/starter/modules/contrib/fast_404/fast404.inc')) {
-#	include_once './profiles/starter/modules/contrib/fast_404/fast404.inc';
-#	fast404_preboot($settings);
-#}
-
 /**
  * Load services definition file.
  */
@@ -727,7 +714,18 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
  *
  * Keep this code block at the end of this file to take full effect.
  */
-if (file_exists(__DIR__ . '/settings.local.php')) {
-	include __DIR__ . '/settings.local.php';
-}
-
+# if (file_exists(__DIR__ . '/settings.local.php')) {
+#   include __DIR__ . '/settings.local.php';
+# }
+$databases['default']['default'] = array (
+  'database' => 'drupal8-install',
+  'username' => 'root',
+  'password' => 'mysql',
+  'prefix' => '',
+  'host' => 'localhost',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
+$settings['install_profile'] = 'starter';
+$config_directories['sync'] = 'sites/default/files/config_KVoqe6Mv5uLGqWvbMSm0F9OoquFYf_paXZQdRi6KdUFBr4MosNRPfodfmDkTu95HZnwmPc7fjA/sync';

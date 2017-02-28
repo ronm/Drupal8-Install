@@ -1,0 +1,12 @@
+name: BEM
+type: theme
+description: 'An opinionated Drupal base theme providing BEM style classes everywhere.'
+package: Core
+# core: 8.x
+hidden: true
+
+# Information added by Drupal.org packaging script on 2016-09-19
+version: '8.x-3.0-alpha1'
+core: '8.x'
+project: 'bem'
+datestamp: 1474286902

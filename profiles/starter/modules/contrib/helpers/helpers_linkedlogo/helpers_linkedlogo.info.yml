@@ -1,0 +1,5 @@
+name: LinkedLogo
+description: Custom LinkedLogo
+package: Helpers
+type: module
+core: 8.x

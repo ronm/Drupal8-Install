@@ -1,0 +1,11 @@
+<?php
+
+function helpers_hero_theme($existing, $type, $theme, $path) {
+	return array(
+    	'hero' => array(
+			'template' => 'hero',
+			'path' => drupal_get_path('module', 'helpers_hero') . '/templates',
+			'variables' => array('slides' => NULL,),
+		),
+	);
+}

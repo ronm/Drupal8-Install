@@ -1,0 +1,5 @@
+{
+  "name": "drupal/bem",
+  "description": "An opinionated Drupal base theme providing BEM style classes everywhere.",
+  "type": "drupal-theme"
+}

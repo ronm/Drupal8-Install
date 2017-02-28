@@ -107,3 +107,15 @@ $settings['rebuild_access'] = TRUE;
 $settings['skip_permissions_hardening'] = TRUE;
 
 
+$databases['default']['default'] = array (
+  'database' => 'drupal8-install',
+  'username' => 'root',
+  'password' => 'mysql',
+  'prefix' => '',
+  'host' => '127.0.0.1',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
+$settings['install_profile'] = 'starter';
+$config_directories['sync'] = 'sites/default/files/config_dbELLd2zKODp_ibnFimt5NWsqyZjkObTJVs_-AdX1vCxB288Bhsoqss2DwxAp86nNBFBKZZGNA/sync';

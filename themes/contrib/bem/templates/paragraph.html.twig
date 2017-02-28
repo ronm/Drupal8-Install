@@ -1,0 +1,13 @@
+{%
+  set bem_block = bem_block ?: ('paragraph-' ~ paragraph.bundle ~ (view_mode != 'default' ? '-' ~ view_mode))|clean_class
+%}
+{%
+set classes = [
+  bem_block
+]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+</div>
