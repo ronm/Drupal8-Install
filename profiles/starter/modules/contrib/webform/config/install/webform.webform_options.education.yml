@@ -6,6 +6,8 @@ dependencies:
       - webform
 id: education
 label: Education
+category: Demographic
+likert: false
 options: |
   High School: High School
   Associate Degree: Associate Degree

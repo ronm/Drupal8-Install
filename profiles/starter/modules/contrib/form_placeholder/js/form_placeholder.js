@@ -1,19 +1,23 @@
-(function($) {
+(function ($) {
+  'use strict';
 
   Drupal.form_placeholder = {};
 
-  Drupal.form_placeholder.elementIsSupported = function($element) {
-    return $element.is('input[type=text], input[type=email], input[type=password], textarea');
+  Drupal.form_placeholder.elementIsSupported = function ($element) {
+    var supportedElement = $element.is('input[type=number], input[type=text], input[type=date], input[type=email], input[type=url], input[type=tel], input[type=password], textarea');
+    var hasId = $element.attr('id');
+    return supportedElement && hasId;
   };
 
-  Drupal.form_placeholder.placeholderIsSupported = function() {
-    // Opera Mini v7 doesn’t support placeholder although its DOM seems to indicate so.
+  Drupal.form_placeholder.placeholderIsSupported = function () {
+    // Opera Mini v7 doesn’t support placeholder although its DOM seems to
+    // indicate so.
     var isOperaMini = Object.prototype.toString.call(window.operamini) == '[object OperaMini]';
     return 'placeholder' in document.createElement('input') && !isOperaMini;
   };
 
   Drupal.behaviors.form_placeholder = {
-    attach: function(context, settings) {
+    attach: function (context, settings) {
       // In some cases settings after ajax form submit could contain only
       // settings from response but not all Drupal.settings data.
       if (!settings.hasOwnProperty('form_placeholder')) {
@@ -34,7 +38,7 @@
 
       var required_indicator = settings.form_placeholder.required_indicator;
 
-      $(include, context).not(exclude).each(function() {
+      $(include, context).not(exclude).each(function () {
         var $textfield = $(this);
         var elementSupported = Drupal.form_placeholder.elementIsSupported($textfield);
         var placeholderSupported = Drupal.form_placeholder.placeholderIsSupported() || $().placeholder;
@@ -62,10 +66,13 @@
                 break;
             }
           }
+          else if (required_indicator === 'optional') {
+            placeholder += ' (' + Drupal.t('optional') + ')';
+          }
 
           if (!$textfield.attr('placeholder')) {
             $textfield.attr('placeholder', placeholder);
-            $label.hide();
+            $label.addClass('visually-hidden');
           }
 
           // Fallback support for older browsers.

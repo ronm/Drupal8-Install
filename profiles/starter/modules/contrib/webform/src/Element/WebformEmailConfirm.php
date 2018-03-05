@@ -6,6 +6,7 @@ use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Render\Element\FormElement;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element\CompositeFormElementTrait;
+use Drupal\webform\Utility\WebformElementHelper;
 
 /**
  * Provides a webform element requiring users to double-element and confirm an email address.
@@ -33,7 +34,8 @@ class WebformEmailConfirm extends FormElement {
       '#pre_render' => [
         [$class, 'preRenderCompositeFormElement'],
       ],
-      '#theme_wrappers' => ['container'],
+      '#element_validate' => [[$class, 'validateWebformEmailConfirm']],
+      '#theme_wrappers' => ['form_element'],
       '#required' => FALSE,
     ];
   }
@@ -95,21 +97,17 @@ class WebformEmailConfirm extends FormElement {
     $element['mail_2']['#attributes']['class'][] = 'webform-email-confirm';
     $element['mail_2']['#value'] = empty($element['#value']) ? NULL : $element['#value']['mail_2'];
 
-    // Remove properties that are being applied to the sub elements.
+    // Don't require the main element.
     $element['#required'] = FALSE;
-    unset($element['#title']);
-    unset($element['#description']);
+
+    // Hide title and description from being display.
+    $element['#title_display'] = 'invisible';
+    $element['#description_display'] = 'invisible';
+
+    // Remove properties that are being applied to the sub elements.
     unset($element['#maxlength']);
-    unset($element['#atributes']);
-
-    // Set validation.
-    if (isset($element['#element_validate'])) {
-      $element['#element_validate'] = array_merge([[get_called_class(), 'validateWebformEmailConfirm']], $element['#element_validate']);
-    }
-    else {
-      $element['#element_validate'] = [[get_called_class(), 'validateWebformEmailConfirm']];
-    }
-
+    unset($element['#attributes']);
+    unset($element['#description']);
     return $element;
   }
 
@@ -129,15 +127,8 @@ class WebformEmailConfirm extends FormElement {
         // NOTE: Only mail_1 needs to be validated since mail_2 is the same value.
         // Verify the required value.
         if ($element['mail_1']['#required'] && empty($mail_1)) {
-          if (isset($element['#required_error'])) {
-            $form_state->setError($element, $element['#required_error']);
-          }
-          elseif (isset($element['mail_1']['#title'])) {
-            $form_state->setError($element, t('@name field is required.', ['@name' => $element['mail_1']['#title']]));
-          }
-          else {
-            $form_state->setError($element);
-          }
+          $required_error_title = (isset($element['mail_1']['#title'])) ? $element['mail_1']['#title'] : NULL;
+          WebformElementHelper::setRequiredError($element, $form_state, $required_error_title);
         }
         // Verify that the value is not longer than #maxlength.
         if (isset($element['mail_1']['#maxlength']) && Unicode::strlen($mail_1) > $element['mail_1']['#maxlength']) {
@@ -149,6 +140,12 @@ class WebformEmailConfirm extends FormElement {
           $form_state->setError($element, t('@name cannot be longer than %max characters but is currently %length characters long.', $t_args));
         }
       }
+    }
+
+    // Set #title for other validation callbacks.
+    // @see \Drupal\webform\Plugin\WebformElementBase::validateUnique
+    if (isset($element['mail_1']['#title'])) {
+      $element['#title'] = $element['mail_1']['#title'];
     }
 
     // Email field must be converted from a two-element array into a single

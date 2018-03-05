@@ -1,19 +1,75 @@
 langcode: en
-status: true
+status: open
 dependencies:
   enforced:
     module:
       - webform_test
+open: null
+close: null
 uid: null
 template: false
 id: test_element_format_multiple
 title: 'Test: Element: Format multiple values'
 description: 'Test element formatting with multiple value.'
+category: 'Test: Element'
 elements: |
   basic_elements:
     '#type': details
     '#title': 'Basic elements'
     '#open': true
+    textarea:
+      '#type': details
+      '#title': Textarea
+      textarea_comma:
+        '#type': textarea
+        '#title': 'Textarea (Comma)'
+        '#rows': 2
+        '#multiple': true
+        '#default_value':
+          - 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Negat esse eam, inquit, propter se expetendam. Primum Theophrasti, Strato, physicum se voluit; Id mihi magnum videtur. Itaque mihi non satis videmini considerare quod iter sit naturae quaeque progressio. Quare hoc videndum est, possitne nobis hoc ratio philosophorum dare. Est enim tanti philosophi tamque nobilis audacter sua decreta defendere.'
+          - 'Huius, Lyco, oratione locuples, rebus ipsis ielunior. Duo Reges: constructio interrete. Sed haec in pueris; Sed utrum hortandus es nobis, Luci, inquit, an etiam tua sponte propensus es? Sapiens autem semper beatus est et est aliquando in dolore; Immo videri fortasse. Paulum, cum regem Persem captum adduceret, eodem flumine invectio? Et ille ridens: Video, inquit, quid agas;'
+          - 'Quae cum dixisset, finem ille. Quamquam non negatis nos intellegere quid sit voluptas, sed quid ille dicat. Progredientibus autem aetatibus sensim tardeve potius quasi nosmet ipsos cognoscimus. Gloriosa ostentatio in constituendo summo bono. Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Duarum enim vitarum nobis erunt instituta capienda. Comprehensum, quod cognitum non habet? Qui enim existimabit posse se miserum esse beatus non erit. Causa autem fuit huc veniendi ut quosdam hinc libros promerem. Nunc omni virtuti vitium contrario nomine opponitur.'
+        '#format_items': comma
+      textarea_semicolon:
+        '#type': textarea
+        '#title': 'Textarea (Semicolon)'
+        '#rows': 2
+        '#multiple': true
+        '#default_value':
+          - 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Negat esse eam, inquit, propter se expetendam. Primum Theophrasti, Strato, physicum se voluit; Id mihi magnum videtur. Itaque mihi non satis videmini considerare quod iter sit naturae quaeque progressio. Quare hoc videndum est, possitne nobis hoc ratio philosophorum dare. Est enim tanti philosophi tamque nobilis audacter sua decreta defendere.'
+          - 'Huius, Lyco, oratione locuples, rebus ipsis ielunior. Duo Reges: constructio interrete. Sed haec in pueris; Sed utrum hortandus es nobis, Luci, inquit, an etiam tua sponte propensus es? Sapiens autem semper beatus est et est aliquando in dolore; Immo videri fortasse. Paulum, cum regem Persem captum adduceret, eodem flumine invectio? Et ille ridens: Video, inquit, quid agas;'
+          - 'Quae cum dixisset, finem ille. Quamquam non negatis nos intellegere quid sit voluptas, sed quid ille dicat. Progredientibus autem aetatibus sensim tardeve potius quasi nosmet ipsos cognoscimus. Gloriosa ostentatio in constituendo summo bono. Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Duarum enim vitarum nobis erunt instituta capienda. Comprehensum, quod cognitum non habet? Qui enim existimabit posse se miserum esse beatus non erit. Causa autem fuit huc veniendi ut quosdam hinc libros promerem. Nunc omni virtuti vitium contrario nomine opponitur.'
+        '#format_items': semicolon
+      textarea_and:
+        '#type': textarea
+        '#title': 'Textarea (And)'
+        '#rows': 2
+        '#multiple': true
+        '#default_value':
+          - 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Negat esse eam, inquit, propter se expetendam. Primum Theophrasti, Strato, physicum se voluit; Id mihi magnum videtur. Itaque mihi non satis videmini considerare quod iter sit naturae quaeque progressio. Quare hoc videndum est, possitne nobis hoc ratio philosophorum dare. Est enim tanti philosophi tamque nobilis audacter sua decreta defendere.'
+          - 'Huius, Lyco, oratione locuples, rebus ipsis ielunior. Duo Reges: constructio interrete. Sed haec in pueris; Sed utrum hortandus es nobis, Luci, inquit, an etiam tua sponte propensus es? Sapiens autem semper beatus est et est aliquando in dolore; Immo videri fortasse. Paulum, cum regem Persem captum adduceret, eodem flumine invectio? Et ille ridens: Video, inquit, quid agas;'
+          - 'Quae cum dixisset, finem ille. Quamquam non negatis nos intellegere quid sit voluptas, sed quid ille dicat. Progredientibus autem aetatibus sensim tardeve potius quasi nosmet ipsos cognoscimus. Gloriosa ostentatio in constituendo summo bono. Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Duarum enim vitarum nobis erunt instituta capienda. Comprehensum, quod cognitum non habet? Qui enim existimabit posse se miserum esse beatus non erit. Causa autem fuit huc veniendi ut quosdam hinc libros promerem. Nunc omni virtuti vitium contrario nomine opponitur.'
+        '#format_items': and
+      textarea_ol:
+        '#type': textarea
+        '#title': 'Textarea (Ordered list)'
+        '#rows': 2
+        '#multiple': true
+        '#default_value':
+          - 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Negat esse eam, inquit, propter se expetendam. Primum Theophrasti, Strato, physicum se voluit; Id mihi magnum videtur. Itaque mihi non satis videmini considerare quod iter sit naturae quaeque progressio. Quare hoc videndum est, possitne nobis hoc ratio philosophorum dare. Est enim tanti philosophi tamque nobilis audacter sua decreta defendere.'
+          - 'Huius, Lyco, oratione locuples, rebus ipsis ielunior. Duo Reges: constructio interrete. Sed haec in pueris; Sed utrum hortandus es nobis, Luci, inquit, an etiam tua sponte propensus es? Sapiens autem semper beatus est et est aliquando in dolore; Immo videri fortasse. Paulum, cum regem Persem captum adduceret, eodem flumine invectio? Et ille ridens: Video, inquit, quid agas;'
+          - 'Quae cum dixisset, finem ille. Quamquam non negatis nos intellegere quid sit voluptas, sed quid ille dicat. Progredientibus autem aetatibus sensim tardeve potius quasi nosmet ipsos cognoscimus. Gloriosa ostentatio in constituendo summo bono. Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Duarum enim vitarum nobis erunt instituta capienda. Comprehensum, quod cognitum non habet? Qui enim existimabit posse se miserum esse beatus non erit. Causa autem fuit huc veniendi ut quosdam hinc libros promerem. Nunc omni virtuti vitium contrario nomine opponitur.'
+        '#format_items': ol
+      textarea_ul:
+        '#type': textarea
+        '#title': 'Textarea (Unordered list)'
+        '#rows': 2
+        '#multiple': true
+        '#default_value':
+          - 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Negat esse eam, inquit, propter se expetendam. Primum Theophrasti, Strato, physicum se voluit; Id mihi magnum videtur. Itaque mihi non satis videmini considerare quod iter sit naturae quaeque progressio. Quare hoc videndum est, possitne nobis hoc ratio philosophorum dare. Est enim tanti philosophi tamque nobilis audacter sua decreta defendere.'
+          - 'Huius, Lyco, oratione locuples, rebus ipsis ielunior. Duo Reges: constructio interrete. Sed haec in pueris; Sed utrum hortandus es nobis, Luci, inquit, an etiam tua sponte propensus es? Sapiens autem semper beatus est et est aliquando in dolore; Immo videri fortasse. Paulum, cum regem Persem captum adduceret, eodem flumine invectio? Et ille ridens: Video, inquit, quid agas;'
+          - 'Quae cum dixisset, finem ille. Quamquam non negatis nos intellegere quid sit voluptas, sed quid ille dicat. Progredientibus autem aetatibus sensim tardeve potius quasi nosmet ipsos cognoscimus. Gloriosa ostentatio in constituendo summo bono. Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Duarum enim vitarum nobis erunt instituta capienda. Comprehensum, quod cognitum non habet? Qui enim existimabit posse se miserum esse beatus non erit. Causa autem fuit huc veniendi ut quosdam hinc libros promerem. Nunc omni virtuti vitium contrario nomine opponitur.'
+        '#format_items': ul
     textfield:
       '#type': details
       '#title': 'Text field'
@@ -72,7 +128,6 @@ elements: |
       webform_autocomplete_comma:
         '#type': webform_autocomplete
         '#title': 'Autocomplete (Comma)'
-        '#autocomplete_items': country_names
         '#multiple': true
         '#default_value':
           - Loremipsum
@@ -82,7 +137,6 @@ elements: |
       webform_autocomplete_semicolon:
         '#type': webform_autocomplete
         '#title': 'Autocomplete (Semicolon)'
-        '#autocomplete_items': country_names
         '#multiple': true
         '#default_value':
           - Loremipsum
@@ -92,7 +146,6 @@ elements: |
       webform_autocomplete_and:
         '#type': webform_autocomplete
         '#title': 'Autocomplete (And)'
-        '#autocomplete_items': country_names
         '#multiple': true
         '#default_value':
           - Loremipsum
@@ -102,7 +155,6 @@ elements: |
       webform_autocomplete_ol:
         '#type': webform_autocomplete
         '#title': 'Autocomplete (Ordered list)'
-        '#autocomplete_items': country_names
         '#multiple': true
         '#default_value':
           - Loremipsum
@@ -112,7 +164,6 @@ elements: |
       webform_autocomplete_ul:
         '#type': webform_autocomplete
         '#title': 'Autocomplete (Unordered list)'
-        '#autocomplete_items': country_names
         '#multiple': true
         '#default_value':
           - Loremipsum
@@ -236,42 +287,47 @@ elements: |
       tel_comma:
         '#type': tel
         '#title': 'Telephone (Comma)'
+        '#international': true
         '#multiple': true
         '#default_value':
-          - 123-456-7890
-          - 098-765-4321
+          - '+1 212-333-4444'
+          - '+1 718-555-6666'
         '#format_items': comma
       tel_semicolon:
         '#type': tel
         '#title': 'Telephone (Semicolon)'
+        '#international': true
         '#multiple': true
         '#default_value':
-          - 123-456-7890
-          - 098-765-4321
+          - '+1 212-333-4444'
+          - '+1 718-555-6666'
         '#format_items': semicolon
       tel_and:
         '#type': tel
         '#title': 'Telephone (And)'
+        '#international': true
         '#multiple': true
         '#default_value':
-          - 123-456-7890
-          - 098-765-4321
+          - '+1 212-333-4444'
+          - '+1 718-555-6666'
         '#format_items': and
       tel_ol:
         '#type': tel
         '#title': 'Telephone (Ordered list)'
+        '#international': true
         '#multiple': true
         '#default_value':
-          - 123-456-7890
-          - 098-765-4321
+          - '+1 212-333-4444'
+          - '+1 718-555-6666'
         '#format_items': ol
       tel_ul:
         '#type': tel
         '#title': 'Telephone (Unordered list)'
+        '#international': true
         '#multiple': true
         '#default_value':
-          - 123-456-7890
-          - 098-765-4321
+          - '+1 212-333-4444'
+          - '+1 718-555-6666'
         '#format_items': ul
     url:
       '#type': details
@@ -330,8 +386,8 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
+        '#options_display': side_by_side
+        '#multiple': true
         '#default_value':
           - one
           - two
@@ -344,8 +400,8 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
+        '#options_display': side_by_side
+        '#multiple': true
         '#default_value':
           - one
           - two
@@ -358,8 +414,8 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
+        '#options_display': side_by_side
+        '#multiple': true
         '#default_value':
           - one
           - two
@@ -372,8 +428,8 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
+        '#options_display': side_by_side
+        '#multiple': true
         '#default_value':
           - one
           - two
@@ -386,8 +442,8 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
+        '#options_display': side_by_side
+        '#multiple': true
         '#default_value':
           - one
           - two
@@ -403,8 +459,8 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
+        '#options_display': side_by_side
+        '#multiple': true
         '#default_value':
           - one
           - two
@@ -417,8 +473,8 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
+        '#options_display': side_by_side
+        '#multiple': true
         '#default_value':
           - one
           - two
@@ -431,8 +487,8 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
+        '#options_display': side_by_side
+        '#multiple': true
         '#default_value':
           - one
           - two
@@ -445,8 +501,8 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
+        '#options_display': side_by_side
+        '#multiple': true
         '#default_value':
           - one
           - two
@@ -459,13 +515,156 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
+        '#options_display': side_by_side
+        '#multiple': true
         '#default_value':
           - one
           - two
           - three
         '#format_items': ul
+    webform_image_select:
+      '#type': details
+      '#title': 'Image select'
+      webform_image_select_comma:
+        '#type': webform_image_select
+        '#title': 'Image select (Comma)'
+        '#show_label': true
+        '#images':
+          bear_1:
+            text: 'Bear 1'
+            src: 'https://www.placebear.com/80/100'
+          bear_2:
+            text: 'Bear 2'
+            src: 'https://www.placebear.com/100/100'
+          bear_3:
+            text: 'Bear 3'
+            src: 'https://www.placebear.com/120/100'
+        '#multiple': true
+        '#default_value':
+          - Loremipsum
+          - Oratione
+          - Dixisset
+        '#format_items': comma
+      webform_image_select_semicolon:
+        '#type': webform_image_select
+        '#title': 'Image select (Semicolon)'
+        '#show_label': true
+        '#images':
+          bear_1:
+            text: 'Bear 1'
+            src: 'https://www.placebear.com/80/100'
+          bear_2:
+            text: 'Bear 2'
+            src: 'https://www.placebear.com/100/100'
+          bear_3:
+            text: 'Bear 3'
+            src: 'https://www.placebear.com/120/100'
+        '#multiple': true
+        '#default_value':
+          - Loremipsum
+          - Oratione
+          - Dixisset
+        '#format_items': semicolon
+      webform_image_select_and:
+        '#type': webform_image_select
+        '#title': 'Image select (And)'
+        '#show_label': true
+        '#images':
+          bear_1:
+            text: 'Bear 1'
+            src: 'https://www.placebear.com/80/100'
+          bear_2:
+            text: 'Bear 2'
+            src: 'https://www.placebear.com/100/100'
+          bear_3:
+            text: 'Bear 3'
+            src: 'https://www.placebear.com/120/100'
+        '#multiple': true
+        '#default_value':
+          - Loremipsum
+          - Oratione
+          - Dixisset
+        '#format_items': and
+      webform_image_select_ol:
+        '#type': webform_image_select
+        '#title': 'Image select (Ordered list)'
+        '#show_label': true
+        '#images':
+          bear_1:
+            text: 'Bear 1'
+            src: 'https://www.placebear.com/80/100'
+          bear_2:
+            text: 'Bear 2'
+            src: 'https://www.placebear.com/100/100'
+          bear_3:
+            text: 'Bear 3'
+            src: 'https://www.placebear.com/120/100'
+        '#multiple': true
+        '#default_value':
+          - Loremipsum
+          - Oratione
+          - Dixisset
+        '#format_items': ol
+      webform_image_select_ul:
+        '#type': webform_image_select
+        '#title': 'Image select (Unordered list)'
+        '#show_label': true
+        '#images':
+          bear_1:
+            text: 'Bear 1'
+            src: 'https://www.placebear.com/80/100'
+          bear_2:
+            text: 'Bear 2'
+            src: 'https://www.placebear.com/100/100'
+          bear_3:
+            text: 'Bear 3'
+            src: 'https://www.placebear.com/120/100'
+        '#multiple': true
+        '#default_value':
+          - Loremipsum
+          - Oratione
+          - Dixisset
+        '#format_items': ul
+      webform_image_select_br:
+        '#type': webform_image_select
+        '#title': 'Image select (Break)'
+        '#show_label': true
+        '#images':
+          bear_1:
+            text: 'Bear 1'
+            src: 'https://www.placebear.com/80/100'
+          bear_2:
+            text: 'Bear 2'
+            src: 'https://www.placebear.com/100/100'
+          bear_3:
+            text: 'Bear 3'
+            src: 'https://www.placebear.com/120/100'
+        '#multiple': true
+        '#default_value':
+          - Loremipsum
+          - Oratione
+          - Dixisset
+        '#format_items': br
+      webform_image_select_space:
+        '#type': webform_image_select
+        '#title': 'Image select (Space)'
+        '#show_label': true
+        '#images':
+          bear_1:
+            text: 'Bear 1'
+            src: 'https://www.placebear.com/80/100'
+          bear_2:
+            text: 'Bear 2'
+            src: 'https://www.placebear.com/100/100'
+          bear_3:
+            text: 'Bear 3'
+            src: 'https://www.placebear.com/120/100'
+        '#multiple': true
+        '#default_value':
+          - Loremipsum
+          - Oratione
+          - Dixisset
+        '#format_items': space
     select:
       '#type': details
       '#title': Select
@@ -476,8 +675,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#multiple': true
         '#default_value':
           - one
@@ -491,8 +688,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#multiple': true
         '#default_value':
           - one
@@ -506,8 +701,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#multiple': true
         '#default_value':
           - one
@@ -521,8 +714,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#multiple': true
         '#default_value':
           - one
@@ -536,8 +727,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#multiple': true
         '#default_value':
           - one
@@ -554,8 +743,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#multiple': true
         '#default_value':
           - one
@@ -569,8 +756,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#multiple': true
         '#default_value':
           - one
@@ -584,8 +769,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#multiple': true
         '#default_value':
           - one
@@ -599,8 +782,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#multiple': true
         '#default_value':
           - one
@@ -614,8 +795,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#multiple': true
         '#default_value':
           - one
@@ -632,8 +811,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#multiple': true
         '#default_value':
           - one
@@ -647,8 +824,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#multiple': true
         '#default_value':
           - one
@@ -662,8 +837,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#multiple': true
         '#default_value':
           - one
@@ -677,8 +850,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#multiple': true
         '#default_value':
           - one
@@ -692,8 +863,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#multiple': true
         '#default_value':
           - one
@@ -710,8 +879,7 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
+        '#multiple': true
         '#default_value':
           - one
           - two
@@ -724,8 +892,7 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
+        '#multiple': true
         '#default_value':
           - one
           - two
@@ -738,8 +905,7 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
+        '#multiple': true
         '#default_value':
           - one
           - two
@@ -752,8 +918,7 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
+        '#multiple': true
         '#default_value':
           - one
           - two
@@ -766,8 +931,7 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
+        '#multiple': true
         '#default_value':
           - one
           - two
@@ -783,8 +947,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#default_value':
           - one
           - two
@@ -797,8 +959,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#default_value':
           - one
           - two
@@ -811,8 +971,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#default_value':
           - one
           - two
@@ -825,8 +983,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#default_value':
           - one
           - two
@@ -839,8 +995,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#default_value':
           - one
           - two
@@ -856,8 +1010,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#default_value':
           - one
           - two
@@ -870,8 +1022,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#default_value':
           - one
           - two
@@ -884,8 +1034,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#default_value':
           - one
           - two
@@ -898,8 +1046,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#default_value':
           - one
           - two
@@ -912,8 +1058,6 @@ elements: |
           one: One
           two: Two
           three: Three
-          four: Four
-          five: Five
         '#default_value':
           - one
           - two
@@ -1178,50 +1322,75 @@ elements: |
       webform_entity_checkboxes_comma:
         '#type': webform_entity_checkboxes
         '#title': 'Entity checkboxes (Comma)'
+        '#options_display': side_by_side
         '#target_type': user
         '#selection_handler': 'default:user'
         '#selection_settings':
           include_anonymous: true
+        '#options':
+          1: Administrator
+          0: Anonymous
+        '#multiple': true
         '#default_value':
           - 1
         '#format_items': comma
       webform_entity_checkboxes_semicolon:
         '#type': webform_entity_checkboxes
         '#title': 'Entity checkboxes (Semicolon)'
+        '#options_display': side_by_side
         '#target_type': user
         '#selection_handler': 'default:user'
         '#selection_settings':
           include_anonymous: true
+        '#options':
+          1: Administrator
+          0: Anonymous
+        '#multiple': true
         '#default_value':
           - 1
         '#format_items': semicolon
       webform_entity_checkboxes_and:
         '#type': webform_entity_checkboxes
         '#title': 'Entity checkboxes (And)'
+        '#options_display': side_by_side
         '#target_type': user
         '#selection_handler': 'default:user'
         '#selection_settings':
           include_anonymous: true
+        '#options':
+          1: Administrator
+          0: Anonymous
+        '#multiple': true
         '#default_value':
           - 1
         '#format_items': and
       webform_entity_checkboxes_ol:
         '#type': webform_entity_checkboxes
         '#title': 'Entity checkboxes (Ordered list)'
+        '#options_display': side_by_side
         '#target_type': user
         '#selection_handler': 'default:user'
         '#selection_settings':
           include_anonymous: true
+        '#options':
+          1: Administrator
+          0: Anonymous
+        '#multiple': true
         '#default_value':
           - 1
         '#format_items': ol
       webform_entity_checkboxes_ul:
         '#type': webform_entity_checkboxes
         '#title': 'Entity checkboxes (Unordered list)'
+        '#options_display': side_by_side
         '#target_type': user
         '#selection_handler': 'default:user'
         '#selection_settings':
           include_anonymous: true
+        '#options':
+          1: Administrator
+          0: Anonymous
+        '#multiple': true
         '#default_value':
           - 1
         '#format_items': ul
@@ -1235,6 +1404,9 @@ elements: |
         '#selection_handler': 'default:user'
         '#selection_settings':
           include_anonymous: true
+        '#options':
+          1: Administrator
+          0: Anonymous
         '#multiple': true
         '#default_value':
           - 1
@@ -1246,6 +1418,9 @@ elements: |
         '#selection_handler': 'default:user'
         '#selection_settings':
           include_anonymous: true
+        '#options':
+          1: Administrator
+          0: Anonymous
         '#multiple': true
         '#default_value':
           - 1
@@ -1257,6 +1432,9 @@ elements: |
         '#selection_handler': 'default:user'
         '#selection_settings':
           include_anonymous: true
+        '#options':
+          1: Administrator
+          0: Anonymous
         '#multiple': true
         '#default_value':
           - 1
@@ -1268,6 +1446,9 @@ elements: |
         '#selection_handler': 'default:user'
         '#selection_settings':
           include_anonymous: true
+        '#options':
+          1: Administrator
+          0: Anonymous
         '#multiple': true
         '#default_value':
           - 1
@@ -1279,55 +1460,181 @@ elements: |
         '#selection_handler': 'default:user'
         '#selection_settings':
           include_anonymous: true
+        '#options':
+          1: Administrator
+          0: Anonymous
         '#multiple': true
         '#default_value':
           - 1
         '#format_items': ul
+    webform_term_checkboxes:
+      '#type': details
+      '#title': 'Term checkboxes'
+      webform_term_checkboxes_comma:
+        '#type': webform_term_checkboxes
+        '#title': 'Term checkboxes (Comma)'
+        '#vocabulary': tags
+        '#multiple': true
+        '#default_value':
+          - 41
+          - 48
+          - 43
+        '#format_items': comma
+      webform_term_checkboxes_semicolon:
+        '#type': webform_term_checkboxes
+        '#title': 'Term checkboxes (Semicolon)'
+        '#vocabulary': tags
+        '#multiple': true
+        '#default_value':
+          - 41
+          - 48
+          - 43
+        '#format_items': semicolon
+      webform_term_checkboxes_and:
+        '#type': webform_term_checkboxes
+        '#title': 'Term checkboxes (And)'
+        '#vocabulary': tags
+        '#multiple': true
+        '#default_value':
+          - 41
+          - 48
+          - 43
+        '#format_items': and
+      webform_term_checkboxes_ol:
+        '#type': webform_term_checkboxes
+        '#title': 'Term checkboxes (Ordered list)'
+        '#vocabulary': tags
+        '#multiple': true
+        '#default_value':
+          - 41
+          - 48
+          - 43
+        '#format_items': ol
+      webform_term_checkboxes_ul:
+        '#type': webform_term_checkboxes
+        '#title': 'Term checkboxes (Unordered list)'
+        '#vocabulary': tags
+        '#multiple': true
+        '#default_value':
+          - 41
+          - 48
+          - 43
+        '#format_items': ul
+    webform_term_select:
+      '#type': details
+      '#title': 'Term select'
+      webform_term_select_comma:
+        '#type': webform_term_select
+        '#title': 'Term select (Comma)'
+        '#vocabulary': tags
+        '#multiple': true
+        '#default_value':
+          - 41
+          - 48
+          - 43
+        '#format_items': comma
+      webform_term_select_semicolon:
+        '#type': webform_term_select
+        '#title': 'Term select (Semicolon)'
+        '#vocabulary': tags
+        '#multiple': true
+        '#default_value':
+          - 41
+          - 48
+          - 43
+        '#format_items': semicolon
+      webform_term_select_and:
+        '#type': webform_term_select
+        '#title': 'Term select (And)'
+        '#vocabulary': tags
+        '#multiple': true
+        '#default_value':
+          - 41
+          - 48
+          - 43
+        '#format_items': and
+      webform_term_select_ol:
+        '#type': webform_term_select
+        '#title': 'Term select (Ordered list)'
+        '#vocabulary': tags
+        '#multiple': true
+        '#default_value':
+          - 41
+          - 48
+          - 43
+        '#format_items': ol
+      webform_term_select_ul:
+        '#type': webform_term_select
+        '#title': 'Term select (Unordered list)'
+        '#vocabulary': tags
+        '#multiple': true
+        '#default_value':
+          - 41
+          - 48
+          - 43
+        '#format_items': ul
 css: ''
 javascript: ''
 settings:
+  ajax: false
+  ajax_scroll_top: form
   page: true
   page_submit_path: ''
   page_confirm_path: ''
-  form_submit_label: ''
   form_submit_once: false
-  form_submit_attributes: {  }
   form_exception_message: ''
-  form_closed_message: ''
+  form_open_message: ''
+  form_close_message: ''
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
+  form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
   form_disable_autocomplete: false
   form_novalidate: false
+  form_required: false
   form_unsaved: false
   form_disable_back: false
+  form_submit_back: false
   form_autofocus: false
   form_details_toggle: false
+  form_login: false
+  form_login_message: ''
+  submission_label: ''
+  submission_log: false
+  submission_user_columns: {  }
+  submission_login: false
+  submission_login_message: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
   wizard_progress_bar: true
   wizard_progress_pages: false
   wizard_progress_percentage: false
-  wizard_next_button_label: ''
-  wizard_next_button_attributes: {  }
-  wizard_prev_button_label: ''
-  wizard_prev_button_attributes: {  }
   wizard_start_label: ''
-  wizard_complete: true
-  wizard_complete_label: ''
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
   preview: 1
-  preview_next_button_label: ''
-  preview_next_button_attributes: {  }
-  preview_prev_button_label: ''
-  preview_prev_button_attributes: {  }
+  preview_label: ''
+  preview_title: ''
   preview_message: ''
-  draft: false
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  draft: none
+  draft_multiple: false
   draft_auto_save: false
-  draft_button_label: ''
-  draft_button_attributes: {  }
   draft_saved_message: ''
   draft_loaded_message: ''
   confirmation_type: page
+  confirmation_title: ''
   confirmation_message: ''
   confirmation_url: ''
   confirmation_attributes: {  }
@@ -1335,13 +1642,17 @@ settings:
   confirmation_back_label: ''
   confirmation_back_attributes: {  }
   limit_total: null
+  limit_total_interval: null
   limit_total_message: ''
   limit_user: null
+  limit_user_interval: null
   limit_user_message: ''
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
   purge: none
   purge_days: null
-  entity_limit_total: null
-  entity_limit_user: null
   results_disabled: false
   results_disabled_ignore: false
   token_update: false
@@ -1351,61 +1662,105 @@ access:
       - anonymous
       - authenticated
     users: {  }
+    permissions: {  }
   view_any:
     roles: {  }
     users: {  }
+    permissions: {  }
   update_any:
     roles: {  }
     users: {  }
+    permissions: {  }
   delete_any:
     roles: {  }
     users: {  }
+    permissions: {  }
   purge_any:
     roles: {  }
     users: {  }
+    permissions: {  }
   view_own:
     roles: {  }
     users: {  }
+    permissions: {  }
   update_own:
     roles: {  }
     users: {  }
+    permissions: {  }
   delete_own:
     roles: {  }
     users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
 handlers:
   email_text:
     id: email
     label: 'Email (Text)'
     handler_id: email_text
     status: true
+    conditions: {  }
     weight: 1
     settings:
+      states:
+        - completed
       to_mail: default
+      to_options: {  }
       cc_mail: ''
+      cc_options: {  }
       bcc_mail: ''
+      bcc_options: {  }
       from_mail: default
+      from_options: {  }
       from_name: default
       subject: default
       body: default
       excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
       html: false
       attachments: false
+      twig: false
       debug: true
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
   email_html:
     id: email
     label: 'Email (HTML)'
     handler_id: email_html
     status: true
+    conditions: {  }
     weight: 2
     settings:
+      states:
+        - completed
       to_mail: default
+      to_options: {  }
       cc_mail: ''
+      cc_options: {  }
       bcc_mail: ''
+      bcc_options: {  }
       from_mail: default
+      from_options: {  }
       from_name: default
       subject: default
       body: default
       excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
       html: true
       attachments: false
+      twig: false
       debug: true
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''

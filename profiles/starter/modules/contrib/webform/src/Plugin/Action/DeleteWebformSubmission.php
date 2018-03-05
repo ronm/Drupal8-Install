@@ -45,8 +45,8 @@ class DeleteWebformSubmission extends ActionBase implements ContainerFactoryPlug
    *   The plugin implementation definition.
    * @param \Drupal\user\PrivateTempStoreFactory $temp_store_factory
    *   The tempstore factory.
-   * @param AccountInterface $current_user
-   *   Current user.
+   * @param \Drupal\Core\Session\AccountInterface $current_user
+   *   The current user.
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, PrivateTempStoreFactory $temp_store_factory, AccountInterface $current_user) {
     $this->currentUser = $current_user;

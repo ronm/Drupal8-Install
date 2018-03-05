@@ -3,13 +3,16 @@ type: profile
 description: 'Install with commonly used features pre-configured.'
 # version: VERSION
 core: 8.x
+distribution:
+  name: Drupal Distribution
+  langcode: en
 dependencies:
   - node
   - block
   - ckeditor
   - config
   - contextual
-  - contact
+#  - contact
   - menu_link_content
   - datetime
   - block_content
@@ -35,6 +38,7 @@ dependencies:
   - admin_toolbar_tools
   - block_class
   - ctools
+  - default_content
   - fast404
   - field_collection
   - form_placeholder

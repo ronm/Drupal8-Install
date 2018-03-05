@@ -16,7 +16,7 @@ use Drupal\webform\WebformSubmissionInterface;
  *   category = @Translation("Containers"),
  * )
  */
-class Item extends ContainerBase {
+class Item extends WebformMarkup {
 
   /**
    * {@inheritdoc}
@@ -24,8 +24,11 @@ class Item extends ContainerBase {
   public function getDefaultProperties() {
     return [
       'title' => '',
-      // General settings.
+      // Description/Help.
+      'help' => '',
       'description' => '',
+      'more' => '',
+      'more_title' => '',
       // Form display.
       'title_display' => '',
       'description_display' => '',
@@ -33,13 +36,13 @@ class Item extends ContainerBase {
       'field_suffix' => '',
       // Form validation.
       'required' => FALSE,
-    ] + $this->getDefaultBaseProperties();
+    ] + parent::getDefaultProperties();
   }
 
   /**
    * {@inheritdoc}
    */
-  public function prepare(array &$element, WebformSubmissionInterface $webform_submission) {
+  public function prepare(array &$element, WebformSubmissionInterface $webform_submission = NULL) {
     parent::prepare($element, $webform_submission);
     $element['#element_validate'][] = [get_class($this), 'validateItem'];
   }
@@ -50,6 +53,17 @@ class Item extends ContainerBase {
   public static function validateItem(array &$element, FormStateInterface $form_state, array &$completed_form) {
     $name = $element['#name'];
     $form_state->unsetValue($name);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function preview() {
+    return parent::preview() + [
+      '#markup' => '{markup}',
+      '#field_prefix' => '{field_prefix}',
+      '#field_suffix' => '{field_suffix}',
+    ];
   }
 
 }

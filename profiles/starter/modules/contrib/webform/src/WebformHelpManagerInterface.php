@@ -10,6 +10,17 @@ use Drupal\Core\Routing\RouteMatchInterface;
 interface WebformHelpManagerInterface {
 
   /**
+   * Get group.
+   *
+   * @param string|null $id
+   *   (optional) Group name.
+   *
+   * @return array|mixed
+   *   A single group item or all groups.
+   */
+  public function getGroup($id = NULL);
+
+  /**
    * Get help.
    *
    * @param string|null $id
@@ -51,5 +62,49 @@ interface WebformHelpManagerInterface {
    *   An render array containing help for the Webform module.
    */
   public function buildIndex();
+
+  /**
+   * Build the videos section.
+   *
+   * @param bool $docs
+   *   Set to TRUE to build exportable HTML documentation.
+   *
+   * @return array
+   *   An render array containing the videos section.
+   */
+  public function buildVideos($docs = FALSE);
+
+  /**
+   * Build the add-ons section.
+   *
+   * @param bool $docs
+   *   Set to TRUE to build exportable HTML documentation.
+   *
+   * @return array
+   *   An render array containing the add-ons section.
+   */
+  public function buildAddOns($docs = FALSE);
+
+  /**
+   * Build the libraries section.
+   *
+   * @param bool $docs
+   *   Set to TRUE to build exportable HTML documentation.
+   *
+   * @return array
+   *   An render array containing the libraries section.
+   */
+  public function buildLibraries($docs = FALSE);
+
+  /**
+   * Build the comparison section.
+   *
+   * @param bool $docs
+   *   Set to TRUE to build exportable HTML documentation.
+   *
+   * @return array
+   *   An render array containing the comparison section.
+   */
+  public function buildComparison($docs = FALSE);
 
 }

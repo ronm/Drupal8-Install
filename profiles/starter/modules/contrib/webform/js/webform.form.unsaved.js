@@ -1,6 +1,6 @@
 /**
  * @file
- * Javascript behaviors for unsaved webforms.
+ * JavaScript behaviors for unsaved webforms.
  */
 
 (function ($, Drupal) {
@@ -26,12 +26,17 @@
         unsaved = true;
       }
       else {
-        $('.js-webform-unsaved :input:not(input[type=\'submit\'])', context).once('webform-unsaved').on('change keypress', function () {
-          unsaved = true;
+        $('.js-webform-unsaved :input:not(:button, :submit, :reset)', context).once('webform-unsaved').on('change keypress', function (event, param1) {
+          // Ignore events triggered when #states API is changed,
+          // which passes 'webform.states' as param1.
+          // @see webform.states.js ::triggerEventHandlers().
+          if (param1 !== 'webform.states') {
+            unsaved = true;
+          }
         });
       }
 
-      $('.js-webform-unsaved button, .js-webform-unsaved input[type=\'submit\']', context).once('webform-unsaved').on('click', function () {
+      $('.js-webform-unsaved button, .js-webform-unsaved input[type="submit"]', context).once('webform-unsaved').on('click', function () {
         unsaved = false;
       });
     }
@@ -43,7 +48,7 @@
     }
   });
 
-  /*!
+  /**
    * An experimental shim to partially emulate onBeforeUnload on iOS.
    * Part of https://github.com/codedance/jquery.AreYouSure/
    *
@@ -60,7 +65,7 @@
     }
     $('a').bind('click', function (evt) {
       var href = $(evt.target).closest('a').attr('href');
-      if (href !== undefined && !(href.match(/^#/) || href.trim() == '')) {
+      if (href !== undefined && !(href.match(/^#/) || href.trim() === '')) {
         if ($(window).triggerHandler('beforeunload')) {
           if (!confirm(Drupal.t('Changes you made may not be saved.') + '\n\n' + Drupal.t('Press OK to leave this page or Cancel to stay.'))) {
             return false;
